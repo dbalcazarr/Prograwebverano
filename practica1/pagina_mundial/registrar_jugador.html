@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pagina Web Mundial Brasil 2014</title>
+<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+</head>
+	<body>
+		<table border="0" align="center" class="menu">
+			<tr>
+				<th><a href="lista_equipos.html">Lista de Equipos</a></th>
+				<th><a href="calendario_resultados.html">Calendario y resultados</a></th>
+				<th><a href="tabla_grupos.html">Tabla de Grupos</a></th>
+			</tr>
+			<tr>
+				<th><a href="goleo_individual.html">Goleo individual</a></th>
+				<th><a href="goleo_equipos.html">Goleo por Equipos</a></th>
+				<th><a href="estadisticas.html">Etad&iacute;sticas</a></th>
+			</tr>
+			<tr>
+				<th colspan="3"><a href="noticias.html">Noticias</a></th>
+			</tr>
+            <tr>
+				<th colspan="3"><a href="resultados.html">Captura de Resultados</a></th>
+			</tr>
+		</table>
+        <div align="center">
+        <img width="50%" height="50%" src="images/fifa2014.jpg"/>
+        </div>
+       <div align="center">
+        <form method="post" action="">
+         <label for="id_jugador">Nombre del Jugador</label>
+         <input type="text" id="id_jugador" name="id_jugador" required>
+         <br/>
+         <label for="id_apellidos">Apellidos</label>
+         <input type="text" id="id_apellidos" name="id_apellidos" required>
+         <br/>
+         <label for="id_foto">Foto del Jugador</label>
+         <input type="file" id="id_foto" name="id_foto">
+         <br />
+         <label for="id_estatura">Estatura</label>
+         <input type="text" id="id_estatura" name="id_estatura" required>
+        
+         <br/>
+         <label for="id_peso">Peso</label>
+         <input type="text" id="id_peso" name="id_peso" required>
+        
+         <br/>
+         <label for="id_edad">Edad</label>
+         <input type="text" id="id_edad" name="id_edad" required>
+        
+         <br/>
+         <label for="id_pais">Pa&iacute;s de procedencia</label>
+         <select name="paises">
+                   <option value="">Seleccione Pa&iacute;s</option>
+                   <option value="arg">Argelia</option>
+                   <option value="cm">Camer&uacute;n</option>
+                   <option value="cf">Costa de Marfil</option>
+                   <option value="gh">Ghana</option>
+                   <option value="Ni">Nigeria</option>
+                   <option value="eua">Estados Unidos</option>
+                   <option value="fr">Francia</option>
+                  </select> 
+          <br />
+         <label for="id_club">Club de Procedencia</label>
+         <input type="text" id="id_club" name="id_club">
+         <br />
+         <label for="id_equipo">Equipo</label>
+         <input type="text" id="id_equipo" name="id_equipo">
+         <br />
+         
+          <input type="submit" value="Guardar">
+         </form>
+        </div>
+	</body>
+</html>

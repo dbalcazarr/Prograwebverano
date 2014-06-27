@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pagina Web Mundial Brasil 2014</title>
+<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+</head>
+	<body>
+		<table border="0" align="center" class="menu">
+			<tr>
+				<th><a href="lista_equipos.html">Lista de Equipos</a></th>
+				<th><a href="calendario_resultados.html">Calendario y resultados</a></th>
+				<th><a href="tabla_grupos.html">Tabla de Grupos</a></th>
+			</tr>
+			<tr>
+				<th><a href="goleo_individual.html">Goleo individual</a></th>
+				<th><a href="goleo_equipos.html">Goleo por Equipos</a></th>
+				<th><a href="estadisticas.html">Etad&iacute;sticas</a></th>
+			</tr>
+			<tr>
+				<th colspan="3"><a href="noticias.html">Noticias</a></th>
+			</tr>
+            <tr>
+				<th colspan="3"><a href="resultados.html">Captura de Resultados</a></th>
+			</tr>
+		</table>
+        <div align="center">
+        <img width="50%" height="50%" src="images/fifa2014.jpg"/>
+        </div>
+        <form name="resultadosForm" method="post" action="">
+        <table border="1" align="center">
+         <caption class="renglon_verde_alto"><h2>Captura de resultados</h2></caption>
+         <tr class="renglon_verde_bajo">
+           <th>Fecha</th><th>Equipo local</th><th>Marcador</th><th>Equipo Visitante</th>
+         </tr>
+         <tr class="renglon_verde_alto">
+             <td>
+                 23/Junio/2014
+             </td>
+             <td>
+                 <img src="images/banderacroacia.png" align="center"/>
+                 Croacia
+             </td>
+             <td>
+                 <input type="text" name="equipo1_local" value="" style="width:30px;"/>-
+                 <input type="text" name="equipo2_visitante" value="" style="width:30px;"/>
+
+             </td>
+                 
+             <td>
+             <img src="images/banderamexico.png" align="center"/>
+                 M&eacute;xico
+             </td>
+         </tr>
+         <tr class="renglon_verde_bajo">
+             <td>
+                 25/Junio/2014
+             </td>
+             <td>
+                 <img src="images/banderaalemania.png" align="center"/>
+                 Alemania
+             </td>
+             <td>
+                 <input type="text" name="equipo3_local" value="" style="width:30px;"/>-
+                 <input type="text" name="equipo4_visitante" value="" style="width:30px;"/>
+
+             </td>
+                 
+             <td>
+             <img src="images/banderaargentina.png" align="center"/>
+                 Argentina
+             </td>
+         </tr>
+         <tr class="renglon_verde_alto">
+             <td>
+                 25/Junio/2014
+             </td>
+             <td>
+             <img src="images/banderaalemania.png" align="center"/>
+                 <select name="equipo_local">
+                   <option value=""></option>
+                   <option value="mx">M&eacute;xico</option>
+                   <option value="br">Brasil</option>
+                  </select> 
+             </td>
+             <td>
+                 <input type="text" name="equipo3_local" value="" style="width:30px;"/>-
+                 <input type="text" name="equipo4_visitante" value="" style="width:30px;"/>
+
+             </td>
+                 
+             <td>
+             <img src="images/banderaargentina.png" align="center"/>
+                <select name="equipo2_visitante">
+                   <option value=""></option>
+                   <option value="mx">M&eacute;xico</option>
+                   <option value="br">Brasil</option>
+                  </select> 
+             </td>
+         </tr>
+         <tr class="renglon_verde_bajo">
+           <td align="right" colspan="4">
+                         <input type="submit" name="guardar" value="guardar"/>
+           </td>
+         </tr>
+  
+         </table>  
+         </form>
+	</body>
+</html>
