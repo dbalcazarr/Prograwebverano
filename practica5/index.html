@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<script type="text/javascript" src="js/jquery.min.js"></script>
+        <script>
+				$(document).ready(
+					
+					function(){
+					
+						alert($('#elemento1').css('fontSize'));
+						$('#elemento1').css({ 'fontSize' : '100px', 'color' : 'red' });
+						alert($('#elemento1').css('fontSize'));
+						$('#elemento1').hide('slow');
+						$('#elemento1').show('slow');
+						$('#elemento3').css('font-size','100px'); 
+						$('#elemento4').css('font-size','150px');
+						 
+						$('#elemento4').click(
+							function(){
+								$(this).css('color','#24FFC1');
+							}
+							
+						)
+					
+					$('#boton').click(
+								function(){
+									$res=parseInt($('#input1').val())+parseInt($('#input2').val());
+									alert($res);
+								}
+					);
+						
+						$('#elemento1').click(
+							function(){
+								$(this).hide('slow');
+							}
+						);
+						
+					});
+		</script>			
+	</head>
+    <body>
+	<div id "container" class="elemento2">
+    	<h1 id="titulo">
+        	<p class="parrafo" id="elemento1">LA SUMA</p>
+       </h1> 
+       <input type="text" id="input1">
+       <input type="text" id="input2">
+      <button type="submit" id="boton">sumar</button>
+    </div>
+    <div>
+    	<h1 id="elemento3" class="titulo">El que gusten 2</h1>
+       <h2 id="elemento4" class="titulo">El que gusten 3</h2>
+    </div>
+    </body>   
+               
+</html>    
