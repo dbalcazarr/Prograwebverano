@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Validadores</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrapValidator.min.css"/>
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+  </head>
+  <body>
+  		<div class="container">
+        <div class="row">
+        	<div class="col-md-12">
+            	<h2>Validadores</h2>
+            </div>
+        </div>
+        	<div class="row">
+            	<div class="col-md-6">
+                	<form id="registerForm">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username" />
+                        </div>
+                        <div class="form-group">
+                            <label>Email address</label>
+                            <input type="text" class="form-control" name="email" />
+                        </div>
+                        
+                            
+					</form>
+                 </div>
+                 <div class="col-md-6">
+                 <form id="maskForm" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">IP address</label>
+                        <div class="col-lg-5">
+                            <input type="text" class="form-control" name="ipAddress" />
+                        </div>
+                    </div>
+                </form>
+                 </div>
+        </div>
+        <div class="row">
+                        
+             <form id="enableForm" method="post" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Full name (*)</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="full_name" />
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <label class="col-md-3 control-label">New password</label>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="password" />
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Confirm password</label>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="confirm_password" />
+                    </div>
+                </div>
+            
+                <div class="form-group">
+                    <div class="col-md-5 col-md-offset-3">
+                        <button type="submit" class="btn btn-primary">Validate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+   	<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+   <script>
+   $(document).ready(function() {
+    $('#registerForm').bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: 'The username can only consist of alphabetical, number and underscore'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email is required and cannot be empty'
+                    },
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
+                }
+            }
+        }
+    });
+	$('#enableForm')
+        .bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                full_name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The full name is required and cannot be empty'
+                        }
+                    }
+                },
+                password: {
+                    enabled: false,
+                    validators: {
+                        notEmpty: {
+                            message: 'The password is required and cannot be empty'
+                        },
+                        identical: {
+                            field: 'confirm_password',
+                            message: 'The password and its confirm must be the same'
+                        }
+                    }
+                },
+                confirm_password: {
+                    enabled: false,
+                    validators: {
+                        notEmpty: {
+                            message: 'The confirm password is required and cannot be empty'
+                        },
+                        identical: {
+                            field: 'password',
+                            message: 'The password and its confirm must be the same'
+                        }
+                    }
+                }
+            }
+        })
+        // Enable the password/confirm password validators if the password is not empty
+        .on('keyup', '[name="password"]', function() {
+            var isEmpty = $(this).val() == '';
+            $('#enableForm')
+                    .bootstrapValidator('enableFieldValidators', 'password', !isEmpty)
+                    .bootstrapValidator('enableFieldValidators', 'confirm_password', !isEmpty);
+
+            // Revalidate the field when user start typing in the password field
+            if ($(this).val().length == 1) {
+                $('#enableForm').bootstrapValidator('validateField', 'password')
+                                .bootstrapValidator('validateField', 'confirm_password');
+            }
+        });
+});
+   </script>
+   
+    <script>
+$(document).ready(function() {
+    $('#maskForm').bootstrapValidator({
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                ipAddress: {
+                    validators: {
+                        ip: {
+                            message: 'The IP address is not valid'
+                        }
+                    }
+                }
+            }
+        })
+		.find('[name="ipAddress"]').mask('099.099.099.099');
+		
+});
+
+
+</script>
+
+
+
+
+
+  
+  </body>
+</html>
