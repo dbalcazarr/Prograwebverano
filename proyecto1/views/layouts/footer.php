@@ -55,6 +55,38 @@
     </script>
     <script type="text/javascript" src="../js/bootstrapValidator.min.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+				$(document).ready(
+					
+					function(){
+					 $('#entrenador').hide();
+					 $('#jugador').hide();
+					 
+						$('#botonf').click(
+							function(){
+								$('#integrante').show('slow');
+								$('#equipo').show('slow');
+							}
+							
+						)
+					
+					$('#botone').click(
+								function(){
+									$('#entrenador').show('slow');
+									$('#jugador').hide();
+								}
+					);
+						
+						$('#botonj').click(
+							function(){
+								$('#jugador').show('slow');
+								$('#entrenador').hide();
+								
+							}
+						);
+						
+					});
+</script>
   
     
 

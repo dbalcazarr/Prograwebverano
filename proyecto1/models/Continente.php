@@ -1,24 +1,20 @@
 <?php
 
-class Usuario extends Modelo{
-   public $nombre_tabla = 'equipo';
-   public $pk = 'idequipo';
+class Continente extends Modelo{
+   public $nombre_tabla = 'continente';
+   public $pk = 'idcontinente';
    
    
    public $atributos = array(
        'nombre'=>array(),
-       'idpais'=>array(),
-       'escudo'=>array(),
    );
    
    public $errores = array( );
    
    private $nombre;
-   private $idpais;
-   private $escudo;
-      
-   
-   function Equipo(){
+
+         
+   function Continente(){
        parent::Modelo();
    }
    
@@ -39,19 +35,15 @@ class Usuario extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_email($valor) ){
-           $this->errores[] = "Este e-mail (".$valor.") no es valido";
+       if ( !$er->valida_nombre($valor) ){
+           $this->errores[] = "Este nombre (".$valor.") no es valido";
        }
 
               
        $this->nombre = trim($valor);
        
    }
-
-
-   
-   
-   
+     
 }
 
 ?>

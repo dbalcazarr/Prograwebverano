@@ -1,6 +1,6 @@
 <?php
 
-class Usuario extends Modelo{
+class Equipo extends Modelo{
    public $nombre_tabla = 'equipo';
    public $pk = 'idequipo';
    
@@ -40,14 +40,47 @@ class Usuario extends Modelo{
        $er = new Er();
        
        if ( !$er->valida_email($valor) ){
-           $this->errores[] = "Este e-mail (".$valor.") no es valido";
+           $this->errores[] = "Este nombre (".$valor.") no es valido";
        }
 
               
        $this->nombre = trim($valor);
        
    }
+   
+   public function get_escudo(){
+       return $this->escudo;
+   } 
 
+   public function set_escudo($valor){
+
+       $er = new Er();
+       
+       if ( !$er->valida_escudo($valor) ){
+           $this->errores[] = "Este escudo (".$valor.") no es valido";
+       }
+
+              
+       $this->escudo = trim($valor);
+       
+   }
+
+public function get_idpais(){
+       return $this->idpaos;
+   } 
+
+   public function set_idpais($valor){
+
+       $er = new Er();
+       
+       if ( !$er->valida_escudo($valor) ){
+           $this->errores[] = "Este idpais (".$valor.") no es valido";
+       }
+
+              
+       $this->idpais = trim($valor);
+       
+   }
 
    
    
