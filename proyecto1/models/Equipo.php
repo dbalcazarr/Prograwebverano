@@ -37,15 +37,11 @@ class Equipo extends Modelo{
 
    public function set_nombre($valor){
 
-       $er = new Er();
-       
+       $er = new Er();      
        if ( !$er->valida_email($valor) ){
            $this->errores[] = "Este nombre (".$valor.") no es valido";
        }
-
-              
        $this->nombre = trim($valor);
-       
    }
    
    public function get_escudo(){
@@ -56,7 +52,7 @@ class Equipo extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_escudo($valor) ){
+       if ( !$er->valida_imagen($valor) ){
            $this->errores[] = "Este escudo (".$valor.") no es valido";
        }
 
@@ -73,8 +69,8 @@ public function get_idpais(){
 
        $er = new Er();
        
-       if ( !$er->valida_escudo($valor) ){
-           $this->errores[] = "Este idpais (".$valor.") no es valido";
+       if ( !$er->valida_numero($valor) ){
+           $this->errores[] = "Este no es un numero (".$valor.")  valido";
        }
 
               

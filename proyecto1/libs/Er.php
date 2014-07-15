@@ -20,7 +20,7 @@ class Er {
 		} 
 	}
 	
-		public function valida_estatura($valor){
+		public function valida_flotante($valor){
 		$exp_reg = "/^(?=.+)(?:[1-9]\d*|0)?(?:\.\d+)?$/"; 
 		if (preg_match($exp_reg, $valor)) {
 		     return true;
@@ -37,6 +37,19 @@ class Er {
 		     return false;
 		} 
 	}
+	
+	public function valida_imagen($imagen){
+		$reg="%\.(gif|jpe?g|png)$%i";
+		if (preg_match($reg, $imagen)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+		 
+
+	
 	
 	
 	

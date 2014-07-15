@@ -64,7 +64,7 @@ class Integrante extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_apellido($valor) ){
+       if ( !$er->valida_nombre($valor) ){
            $this->errores[] = "Este apellido (".$valor.") no es valido";
        }
 
@@ -81,7 +81,7 @@ class Integrante extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_peso($valor) ){
+       if ( !$er->valida_flotante($valor) ){
            $this->errores[] = "El peso (".$valor.") no es valido";
        }
 
@@ -98,8 +98,8 @@ class Integrante extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_estatura($valor) ){
-           $this->errores[] = "El formato de la estatura (".$valor.") no es valida";
+       if ( !$er->valida_flotante($valor) ){
+           $this->errores[] = "El formato de la estatura (".$valor.") no es valido";
        }
 
               
@@ -115,7 +115,7 @@ class Integrante extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_foto($valor) ){
+       if ( !$er->valida_imagen($valor) ){
            $this->errores[] = "El archivo seleccionado (".$valor.") no es valido";
        }
 
@@ -132,12 +132,29 @@ class Integrante extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_edad($valor) ){
-           $this->errores[] = "La edad (".$valor.") no es valida";
+       if ( !$er->valida_numero($valor) ){
+           $this->errores[] = "La edad (".$valor.") no es valida debe de ser un numero";
        }
 
               
        $this->edad = trim($valor);
+       
+   }
+   
+    public function get_idequipo(){
+       return $this->idequipo;
+   } 
+
+   public function set_idequipo($valor){
+
+       $er = new Er();
+       
+       if ( !$er->valida_numero($valor) ){
+           $this->errores[] = "El id (".$valor.") no es valido debe de ser un numero";
+       }
+
+              
+       $this->idequipo = trim($valor);
        
    }
     

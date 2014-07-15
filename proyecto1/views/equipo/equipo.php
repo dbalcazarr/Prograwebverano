@@ -9,11 +9,11 @@
       include ('../../libs/Er.php');
   	  include ('../layouts/header.php');
   
-  if(isset($_POST['nombreeq']))
+  if(isset($_POST['nombre']))
   {
-	  echo "<pre>";
-  	  print_r($_POST);
-	  echo "</pre>";
+	
+	  $equipoC= new EquipoController();
+	  $equipoC->insertaEquipo($_POST);
   }
 ?>
 
@@ -26,12 +26,12 @@
                 <h2>Equipos</h2>
                 	<form role="form" id="registerForm" action="" method="POST">
                       <div class="form-group">
-                        <label for="nombreeq">Nombre</label>
-                        <input type="text" class="form-control" id="nombreeq" name="nombreeq" placeholder="Ej: Francia">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Francia">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputFile">Escudo</label>
-                        <input type="file" id="exampleInputFile">
+                        <label for="escudo">Escudo</label>
+                        <input type="file" id="escudo" name="escudo">
                         <p class="help-block">Cargue la imagen del escudo aqui</p>
                         </div>
                         <div class="form-group">

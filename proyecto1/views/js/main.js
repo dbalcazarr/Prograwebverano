@@ -9,7 +9,7 @@ $(document).ready(function() {
             validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
-            nombrei: {
+            nombre: {
                 message: 'The username is not valid',
                 validators: {
                     notEmpty: {
@@ -43,7 +43,7 @@ $(document).ready(function() {
                     }
                 }
             },
-			numeroj: {
+			numero: {
                 message: 'The username is not valid',
                 validators: {
                     notEmpty: {
@@ -63,51 +63,11 @@ $(document).ready(function() {
                     },
                 }
             },
-			nombrec: {
-                message: 'The username is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'El campo continente no puede estar vacio'
-                    },
-                }
-            },
-			nombrep: {
-                message: 'The username is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'El campo nombre del pais no puede estar vacio'
-                    },
-                }
-            },
-			nombrepos: {
-                message: 'The username is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'El campo nombre de la posicion no puede estar vacio'
-                    },
-                }
-            },
-			abrevia: {
+			abreviatura: {
                 message: 'The username is not valid',
                 validators: {
                     notEmpty: {
                         message: 'El campo abreviatura no puede estar vacio'
-                    },
-                }
-            },
-			nombree: {
-                message: 'The username is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'El campo Nombre del estadio no puede estar vacio'
-                    },
-                }
-            },
-			nombreeq: {
-                message: 'The username is not valid',
-                validators: {
-                    notEmpty: {
-                        message: 'El campo Nombre del Equipo no puede estar vacio'
                     },
                 }
             },

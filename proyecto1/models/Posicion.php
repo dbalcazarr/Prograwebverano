@@ -1,13 +1,13 @@
 <?php
 
-class Posision extends Modelo{
-   public $nombre_tabla = 'posision';
-   public $pk = 'idposision';
+class Posicion extends Modelo{
+   public $nombre_tabla = 'posicion';
+   public $pk = 'idposicion';
    
    
    public $atributos = array(
        'nombre'=>array(),
-	    'abreviatura'=>array(),
+	   'abreviatura'=>array(),
    );
    
    public $errores = array( );
@@ -16,7 +16,7 @@ class Posision extends Modelo{
    private $abreviatura;
 
          
-   function Posision(){
+   function Posicion(){
        parent::Modelo();
    }
    
@@ -54,8 +54,8 @@ class Posision extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_abreviatura($valor) ){
-           $this->errores[] = "Esta abreviatura (".$valor.") no es valido";
+       if ( !$er->valida_nombre($valor) ){
+           $this->errores[] = "Esta abreviatura (".$valor.") no es valida";
        }
 
               

@@ -48,7 +48,7 @@ class Pais extends Modelo{
        
    }
      
-	    public function get_bandera(){
+	   public function get_bandera(){
        return $this->bandera;
    } 
 
@@ -56,14 +56,33 @@ class Pais extends Modelo{
 
        $er = new Er();
        
-       if ( !$er->valida_bandera($valor) ){
-           $this->errores[] = "Este nombre (".$valor.") no es valido";
+       if ( !$er->valida_imagen($valor) ){
+           $this->errores[] = "Este archivo (".$valor.") no es valido";
        }
 
               
        $this->bandera = trim($valor);
        
    }
+   
+   public function get_idcontinente(){
+       return $this->idcontinente;
+   } 
+
+   public function set_idcontinente($valor){
+
+       $er = new Er();
+       
+       if ( !$er->valida_numero($valor) ){
+           $this->errores[] = "Este id  (".$valor.") no es valido";
+       }
+
+              
+       $this->idcontinente = trim($valor);
+       
+   }
+   
+   
 	 
 }
 

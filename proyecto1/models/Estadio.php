@@ -46,6 +46,23 @@ class Estadio extends Modelo{
        
    }
     
+	
+	 public function get_idciudad(){
+       return $this->idciudad;
+   } 
+
+   public function set_idciudad($valor){
+
+       $er = new Er();
+       
+       if ( !$er->valida_numero($valor) ){
+           $this->errores[] = "Este id de ciudad (".$valor.") no es valido";
+       }
+
+              
+       $this->idciudad = trim($valor);
+       
+   }
 	 
 }
 
