@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+·#body1 {
+background-image: url("http://img.fifa.com/images/fwc/2014/brand/bg.jpg?v=130493417218690792");
+background-color: #fff;
+background-repeat: repeat-x;
+background-position: center -110px;
+width: 100%;
+-webkit-background-size: 2560px 650px;
+}
+
+#content-wrap
+{background-image:url("http://img.fifa.com/images/fwc/2014/brand/bg.jpg?v=130493417218690792");background-color:#fff;background-repeat:repeat-x;background-position:center -110px;width:100%;-webkit-background-size:2560px 650px;*z-index:1}

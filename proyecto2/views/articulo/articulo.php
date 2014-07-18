@@ -13,7 +13,7 @@
   {
 	
 	  $articuloC= new ArticuloController();
-	  $articuloC->insertaArticulo($_POST);
+	  $articuloC->insertaArticulo($_POST,$_FILES);
   }
 ?>
 
@@ -24,7 +24,7 @@
             </div>
             	<div class="col-md-4">
                 <h2>Articulos</h2>
-                	<form role="form" id="registerForm" method="post">
+                	<form role="form" id="registerForm" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="nombre">Nombre del Articulo</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej:libro">

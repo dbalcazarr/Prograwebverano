@@ -7,13 +7,15 @@
 			
 		}
 		
-		public function insertaRevista($datos){
+		public function insertaRevista($datos,$archivos){
 			echo "<pre>datos:";
   	  		print_r($datos);
+			print_r($archivos);
 	  		echo "</pre>";
+			
 			$revista= new Revista();
 		    $revista->set_nombre($datos['nombre']);
-			$revista->set_portada($datos['portada']);
+			$revista->set_portada($archivos['portada']);
 			$revista->set_fecha($datos['fecha']);
 			$revista->set_volumen($datos['volumen']);
 			$revista->set_titulo($datos['titulo']);
@@ -28,6 +30,11 @@
 			{
 				print_r($revista->errores);
 					die();
+			}
+			else
+			{
+				move_uploaded_file($archivos['portada']['tmp_name'],
+				 "../img/".$archivos['portada']['name']);
 			}
 			$revista->inserta($revista->get_atributos());
 			

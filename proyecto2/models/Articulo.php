@@ -173,13 +173,20 @@ public function get_abstracto(){
    public function set_archivo_pdf($valor){
 
        $er = new Er();
-       
-       if ( !$er->valida_pdf($valor) ){
+       /*
+       if ( !$er->valida_pdf($valor['name']) ){
            $this->errores[] = "Este formato (".$valor.") no es valido";
+       }
+	   */
+	   if($valor['type']!="application/pdf"){
+        $this->errores[]="Este archivo (".$valor['name'].") no es un PDF";
+       }
+       if($valor['size']>5242880){
+        $this->errores[]="Este archivo (".$valor['name'].") supera el tamaño permitido";
        }
 
               
-       $this->archivo_pdf = trim($valor);
+       $this->archivo_pdf = trim($valor['name']);
        
    }
    

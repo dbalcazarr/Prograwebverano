@@ -13,7 +13,7 @@
   {
 	
 	  $revistaC= new RevistaController();
-	  $revistaC->insertaRevista($_POST);
+	  $revistaC->insertaRevista($_POST,$_FILES);
   }
 ?>
 		<div class="box">
@@ -22,7 +22,7 @@
             </div>
             	<div class="col-md-4">
                       <h2>Revista</h2>
-                	<form id="registerForm" method="post">
+                	<form id="registerForm" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="nombre">Nombre de la Revista</label>
                         <textarea class="form-control" id="nombre" name="nombre"> </textarea>

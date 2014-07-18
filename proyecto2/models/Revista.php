@@ -70,13 +70,20 @@ class Revista extends Modelo{
    public function set_portada($valor){
 
        $er = new Er();
-       
-       if ( !$er->valida_imagen($valor) ){
+       /*
+       if ( !$er->valida_imagen($valor['name']) ){
            $this->errores[] = "Este formato de portada (".$valor.") no es valido";
+       }
+	   */
+	   if($valor['type']!="image/png"){
+        $this->errores[]="Este archivo (".$valor['name'].") no es una imagen jpeg";
+       }
+       if($valor['size']>1048576){
+        $this->errores[]="Este archivo (".$valor['name'].") supera el tamaño permitido";
        }
 
               
-       $this->portada = trim($valor);
+       $this->portada = trim($valor['name']);
        
    }
 
