@@ -9,12 +9,13 @@
       include ('../../libs/Er.php');
   	  include ('../layouts/header.php');
   
-
+  $paisC= new PaisController();
   if(isset($_POST['nombre']))
   {
 	
-	  $paisC= new PaisController();
+	
 	  $paisC->insertaPais($_POST,$_FILES);
+	  $paisC->muestra_errores();
   }
 ?>
 <div class="row">
@@ -30,7 +31,7 @@
                 	<form role="form" id="registerForm" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej: Francia">
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $paisC->get_nombre(); ?>">
                       </div>
                       <div class="form-group">
                         <label for="bandera">Bandera</label>

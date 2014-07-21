@@ -9,11 +9,11 @@
       include ('../../libs/Er.php');
   	  include ('../layouts/header.php');
   
+  $articuloC= new ArticuloController();
   if(isset($_POST['nombre']))
   {
-	
-	  $articuloC= new ArticuloController();
 	  $articuloC->insertaArticulo($_POST,$_FILES);
+	  $articuloC->muestra_errores();
   }
 ?>
 
@@ -27,33 +27,33 @@
                 	<form role="form" id="registerForm" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="nombre">Nombre del Articulo</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej:libro">
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $articuloC->get_nombre(); ?>">
                         </div>
                         <div class="form-group">
                         <label for="resumen">Resumen</label>
-                        <textarea class="form-control" id="resumen" name="resumen"></textarea>
+                        <textarea class="form-control" id="resumen" name="resumen"><?php echo $articuloC->get_resumen(); ?></textarea>
                         </div>
                         <div class="form-group">
                         <label for="abstracto">Abstracto</label>
-                        <textarea class="form-control" id="abstracto" name="abstracto"></textarea>
+                        <textarea class="form-control" id="abstracto" name="abstracto"><?php echo $articuloC->get_abstracto(); ?></textarea>
                         </div>
                         <div class="form-group">
                         <label for="introduccion">Introducci&oacute;n</label>
-                        <textarea class="form-control" id="introduccion" name="introduccion"></textarea>
+                        <textarea class="form-control" id="introduccion" name="introduccion"><?php echo $articuloC->get_introduccion(); ?></textarea>
                         </div>
                         <div class="form-group">
                         <label for="metodologia">Metodolog&iacute;a</label>
-                        <textarea class="form-control" id="metodologia" name="metodologia"></textarea>
+                        <textarea class="form-control" id="metodologia" name="metodologia"><?php echo $articuloC->get_metodologia(); ?></textarea>
                         </div>
                         <div class="form-group">
                         <label for="contenido">Contenido</label>
-                        <textarea class="form-control" id="contenido" name="contenido"></textarea>
+                        <textarea class="form-control" id="contenido" name="contenido"><?php echo $articuloC->get_contenido(); ?></textarea>
                         </div>
                    	   <div class="form-group">
                       		<label for="fecha_creacion">Fecha creacion</label>
                       			
                       				<div class='input-group date' id='datetimepicker1'>
-                          			<input type='text' class="form-control" id="fecha_creacion" name="fecha_creacion"/>
+                          			<input type='text' class="form-control" id="fecha_creacion" name="fecha_creacion" value="<?php echo $articuloC->get_fecha_creacion(); ?>"/>
                           			<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
                           			</span>
                       			</div>
@@ -74,15 +74,15 @@
                       </div>
                        <div class="form-group">
                         <label for="conclusiones">Conclusiones</label>
-                        <textarea class="form-control" id="conclusiones" name="conclusiones"></textarea>
+                        <textarea class="form-control" id="conclusiones" name="conclusiones"><?php echo $articuloC->get_conclusiones(); ?></textarea>
                         </div>
                         <div class="form-group">
                         <label for="agradecimientos">Agradecimientos</label>
-                        <textarea class="form-control" id="agradecimientos" name="agradecimientos"></textarea>
+                        <textarea class="form-control" id="agradecimientos" name="agradecimientos"><?php echo $articuloC->get_agradecimientos(); ?></textarea>
                         </div>
                         <div class="form-group">
                         <label for="referencias">Referencias</label>
-                        <textarea class="form-control" id="referencias" name="referencias"></textarea>
+                        <textarea class="form-control" id="referencias" name="referencias"><?php echo $articuloC->get_referencias(); ?></textarea>
                         </div>
                       
                       <input type="submit" class="btn btn-default" value="Enviar">

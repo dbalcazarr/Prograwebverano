@@ -1,5 +1,6 @@
 <?php 
 
+	  include ('../../libs/security.php');
   	  include ('../../libs/adodb5/adodb-pager.inc.php');
       include ('../../libs/adodb5/adodb.inc.php');
       include ('../../models/Conexion.php');
@@ -15,6 +16,7 @@
 	
 	
 	  $equipoC->insertaEquipo($_POST,$_FILES);
+	  $equipoC->muestra_errores();
   }
 ?>
 
@@ -25,19 +27,7 @@
                 </div>
             	<div class="col-md-4">
                 <!--Hacer una funcion de esto-->
-                <?php
-					if($equipoC->muestra_errores){
-					?>	
-					<div class="alert alert-danger">
-                  	<?php
-							foreach($equipoC->errores as $value){
-								echo "<p>$value</p>";
-							}
-						?>
-					</div>
-                  <?php  	
-					}
-				  ?>
+                
                   
                 <h2>Equipos</h2>
                 	<form role="form" id="registerForm" action="" method="POST" enctype="multipart/form-data">
@@ -51,15 +41,15 @@
                         <p class="help-block">Cargue la imagen del escudo aqui</p>
                         </div>
                         <div class="form-group">
-                        <p>Seleccione el Pa&iacute;s</p>
-                         <select class="form-control" id="idpais" name="idpais">
-                         		<option value="1">1</option>
-                             <option value="2">2</option>
-                             <option value="3">3</option>
-                         </select>
+                        <label for="idpais">Seleccione el Pa&iacute;s</label>
+							<?php echo $equipoC->getDropDown('pais','idpais','idpais');?>
                       </div>
                       <input type="submit" class="btn btn-default" value="Enviar">
                     </form>
+                 </div>
+                 <div class="col-md-4">
+                 	<h2 class="text-center">Lista de equipos</h2>
+                   <?php $equipoC->show_grid();?>
                  </div>
         </div>
       

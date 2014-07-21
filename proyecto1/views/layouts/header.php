@@ -58,31 +58,39 @@
                 <li><a href="">Goleo por Equipos</a></li>
               </ul>
             </li>
+            <?php if( isset($_SESSION['user']) ) {?>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inserci&oacute;n de Datos <b class="caret"></b></a>
+              
               <ul class="dropdown-menu">
-                <li><a href="../pais/pais.php">Inserta Un Pa&iacute;s</a></li>
+                <li><a href="<?php echo BASEURL; ?>/views/pais/pais.php">Inserta Un Pa&iacute;s</a></li>
                 <li class="divider"></li>
-                <li><a href="../continente/continente.php">Inserte un contiente</a></li>
+                <li><a href="<?php echo BASEURL; ?>/views/continente/continente.php">Inserte un contiente</a></li>
                 <li class="divider"></li>
-                <li><a href="../posicion/posicion.php">Inserte una Posici&oacute;n</a></li>
+                <li><a href="<?php echo BASEURL; ?>/views/posicion/posicion.php">Inserte una Posici&oacute;n</a></li>
                 <li class="divider"></li>
-                <li><a href="../estadio/estadio.php">Inserte un Estadio</a></li>
+                <li><a href="<?php echo BASEURL; ?>/views/estadio/estadio.php">Inserte un Estadio</a></li>
                 <li class="divider"></li>
-                <li><a href="../integrante/integrante.php">Inserte un Integrante</a></li>
+                <li><a href="<?php echo BASEURL; ?>/views/integrante/integrante.php">Inserte un Integrante</a></li>
                 <li class="divider"></li>
-                <li><a href="../equipo/equipo.php">Inserte un Equipo</a></li>
+                <li><a href="<?php echo BASEURL; ?>/views/equipo/equipo.php">Inserte un Equipo</a></li>
 
 
               </ul>
             </li>
-
+		  <?php }?>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+          <?php if( !isset($_SESSION['user']) ) {?>
             <li><a href="<?php echo BASEURL; ?>/views/site/login.php">
               <span class="glyphicon glyphicon-log-in"></span> Login</a>
             </li>
+            <?php } else{?>
+            <li><a href="<?php echo BASEURL; ?>/views/site/logout.php">
+              <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </li>
+            <?php }?>
           </ul>
           
 

@@ -26,14 +26,27 @@
 			{
 				move_uploaded_file($archivos['escudo']['tmp_name'],
 				 "../img/".$archivos['escudo']['name']);
+				 
 				 $this->inserta($this->get_atributos());
-			}
-			
-			
-			
-			
-			
+			}	
 		}
+		
+			public function muestra_errores()
+			{
+				
+					if($this->muestra_errores){
+					
+					echo '<div class="alert alert-danger">';
+           
+							foreach($this->errores as $value){
+								echo "<p>$value</p>";
+							}
+						
+					echo "</div>";
+                   	
+					}
+				  
+			}
 		
 		public function validaUsuario($datos){
 			$rs = $this->consulta_sql(" select * from usuarios where email = '".$datos['email']."'  ");
